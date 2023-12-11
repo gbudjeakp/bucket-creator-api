@@ -1,9 +1,8 @@
-name: CI
+name: CI For API
 
 on:
   push:
     branches:
-      - main
       - master
   pull_request: {}
 
@@ -13,7 +12,7 @@ concurrency:
 
 jobs:
   test:
-    name: "Test"
+    name: "Test For API"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
