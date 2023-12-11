@@ -1,12 +1,11 @@
 require("dotenv").config();
 const axios = require("axios");
-const fs = require("fs");
+
 
 const token = process.env.API_TOKEN;
 
 const clusterId = process.env.CLUSTER_ID;
 
-const bucket = process.env.BUCKET_NAME;
 
 const viewBuckets = async (req, res) => {
   try {
@@ -25,16 +24,13 @@ const viewBuckets = async (req, res) => {
 };
 
 const createBuckets = async (req, res) => {
-  // Set the parameters in the request body
-  const {label} = req.body;
-  
+  const { bucketName } = req.body;
 
   const bucketData = {
-    label: label,
-    cluster: clusterId
-  }
+    label: bucketName,
+    cluster: clusterId,
+  };
   try {
-    // Make a POST request to the Linode API
     const response = await axios.post(
       `https://api.linode.com/v4/object-storage/buckets`,
       bucketData,
@@ -45,10 +41,8 @@ const createBuckets = async (req, res) => {
       }
     );
 
-    console.log(response.data); // Log the response data
-    res.json(response.data); // Send the response data to the client
+    res.json(response.data);
   } catch (error) {
-    console.error("Error making POST request:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

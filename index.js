@@ -19,6 +19,9 @@ app.use(express.json())
 
 app.use('/api/v1', bucketRouter);
 
-app.listen(port, ()=>{
+const server = app.listen(port, ()=>{
     console.log(`Server is running on port: ${port}`)
 })
+
+
+module.exports = server;
