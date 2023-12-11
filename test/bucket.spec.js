@@ -15,7 +15,6 @@ describe("Tasks API", () => {
         .request(server)
         .get("/api/v1/view")
         .end((err, response) => {
-            console.log(response.body)
           expect(response).to.have.status(200);
           expect(response.body.data).to.be.an("array");
           done();
