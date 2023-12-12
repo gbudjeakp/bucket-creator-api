@@ -6,7 +6,6 @@ pipeline {
       }
     environment {
         API_TOKEN = credentials('API_TOKEN')
-        DOCKER_PATH = '/usr/bin/docker'
     }
     stages {
         stage('Test') {
@@ -24,7 +23,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 echo "doing build stuff.."
-                which docker 
+                docker build -f Dockerfile .
                 '''
             }
         }
