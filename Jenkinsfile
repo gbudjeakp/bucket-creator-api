@@ -14,7 +14,7 @@ pipeline {
                 sh '''
                  npm install
                  export API_TOKEN="${API_TOKEN}"
-                 npm test
+                 ember test
                 '''
             }
         }
