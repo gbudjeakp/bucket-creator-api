@@ -22,8 +22,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff.."
-                docker build -f Dockerfile .
+                docker build -f Dockerfile -t gbudjeakp/ember-node-api-cicd .
                 '''
             }
         }
