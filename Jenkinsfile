@@ -5,7 +5,7 @@ pipeline {
             }
       }
     environment {
-        API_TOKEN = credentials('YOUR_CREDENTIAL_ID')
+        API_TOKEN = credentials('API_TOKEN')
     }
     stages {
         stage('Test') {
