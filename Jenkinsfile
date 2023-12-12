@@ -24,7 +24,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 echo "doing build stuff.."
-                ${DOCKER_PATH} build -f Dockerfile .
+                which docker 
                 '''
             }
         }
